@@ -111,6 +111,26 @@ Run: generator `gpt-4o`, judge `gpt-5-mini`, 12 inputs x 6 variants x 5 reps = 3
 
 **What I would test next:** validate the judge before using it (harder inputs with more score spread, a second rater, a reference-based metric); run the same prompts on `gpt-5-mini` into `results/gpt-5-mini` to measure the model-by-prompt interaction; and test `REASONING_EFFORT` as another factor.
 
+## Inspecting individual calls: `compare.py` and LangSmith
+
+The report answers "which variant is better and is the difference real". Two tools answer "what did the model actually write?":
+
+**`compare.py`** reads the harness's own records (`results/run1/runs.jsonl`) and prints one input's source paragraph and the outputs from every variant, with word and token counts. Run it from the project root:
+
+```
+python compare.py p07            # all variants, rep 0
+python compare.py p07 3          # a different rep
+python compare.py p07 all        # all variants x all reps, to see run-to-run variation
+```
+
+It is the better tool for targeted comparisons, such as how `TL;DR:` expanded a paragraph that the one-sentence prompts kept short. A single input is an illustration, not evidence: the conclusions in the report rest on all 12 inputs and every rep.
+
+**LangSmith** (optional, set the `LANGCHAIN_*` variables in `.env`) traces every call and tags it `variant:<id>`. It adds what the harness records do not: the exact request, per-call timing and token detail in the trace view, and a place to monitor production traffic. It does not tell you whether an answer was good; tracing is not evaluation, which is why the judge, the human audit and the statistics exist. Tips for reading the project:
+
+- The trace list also holds setup errors from before the full run (wrong deployment name, an unsupported parameter) and rate-limit retries. Set a **time range** that starts at the full run and filter to successful runs.
+- Filter by tag (`variant:v4`) to compare one variant, or to find its slowest and most expensive calls.
+- For side-by-side reading of outputs, `compare.py` is quicker than opening traces one at a time.
+
 ## Human audit rubric
 
 `audit` writes a blind sample (`human_audit.csv`: item id, source paragraph, summary, empty `human_score`). The rater never sees the variant or the judge's score. Give **one overall whole-number score per row, 1-5**, judged against the source paragraph:
