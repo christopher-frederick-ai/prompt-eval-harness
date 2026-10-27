@@ -1,0 +1,7 @@
+variant,prompt,calls,error_rate,words,words_sd_within_input,output_tokens,reasoning_share,cost_per_1k_calls_usd,latency_mean_s,latency_p95_s,one_sentence_rate,quality
+v1,Summarize the following in one sentence:,60,0.0%,"25.7 [23.2, 28.0]",3.1,"31 [28, 34]",0%,0.520,1.10,1.73,100%,"4.82 [4.76, 4.89]"
+v2,Write a short summary of this paragraph:,60,0.0%,"42.3 [35.8, 49.0]",3.9,"51 [44, 59]",0%,0.717,1.18,1.80,8%,"5.00 [5.00, 5.00]"
+v3,Condense this into a concise statement:,60,0.0%,"29.7 [25.5, 34.0]",3.9,"38 [32, 43]",0%,0.584,1.15,2.02,87%,"4.93 [4.86, 4.98]"
+v4,TL;DR:,60,0.0%,"46.6 [38.2, 54.9]",4.4,"58 [48, 68]",0%,0.779,1.75,2.55,2%,"4.98 [4.95, 5.00]"
+v5,TL;DR in one sentence:,60,0.0%,"26.2 [23.2, 28.8]",2.9,"33 [29, 37]",0%,0.533,1.24,1.77,100%,"4.86 [4.78, 4.92]"
+v6,"You are a careful editor. Summarize the paragraph below in a single sentence of at most 25 words. Keep the key facts, do not add anything that is not in the paragraph, and return only the summary.",60,0.0%,"22.3 [20.3, 23.7]",1.7,"28 [25, 30]",0%,0.576,1.01,1.59,100%,"4.81 [4.71, 4.89]"

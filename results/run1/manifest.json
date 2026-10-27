@@ -1,0 +1,36 @@
+{
+  "created": "2026-10-27T03:56:04+00:00",
+  "dry_run": false,
+  "synthetic_data_warning": null,
+  "seed": 42,
+  "reps": 5,
+  "n_inputs": 12,
+  "inputs_sha256_16": "ca887489137cc3a7",
+  "variants": {
+    "v1": "Summarize the following in one sentence:\n",
+    "v2": "Write a short summary of this paragraph:\n",
+    "v3": "Condense this into a concise statement:\n",
+    "v4": "TL;DR:\n",
+    "v5": "TL;DR in one sentence:\n",
+    "v6": "You are a careful editor. Summarize the paragraph below in a single sentence of at most 25 words. Keep the key facts, do not add anything that is not in the paragraph, and return only the summary.\n\n"
+  },
+  "config": {
+    "api_version": "2024-12-01-preview",
+    "chat_deployment": "gpt4o-chat",
+    "judge_deployment": "gpt-5-mini",
+    "reasoning_effort": null,
+    "price_in_per_m": 2.5,
+    "price_out_per_m": 10.0,
+    "judge_price_in_per_m": 0.25,
+    "judge_price_out_per_m": 2.0,
+    "judge_prices_set": true
+  },
+  "python": "3.14.6",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "judge_config": {
+    "judge_deployment": "gpt-5-mini",
+    "judge_price_in_per_m": 0.25,
+    "judge_price_out_per_m": 2.0,
+    "judge_prices_set": true
+  }
+}
